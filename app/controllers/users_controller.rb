@@ -4,6 +4,19 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
   end
   
+  def edit #課題
+  @user = User.find(params[:id])
+  end
+  
+  def update #課題
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       redirect_to user_url(@user) ,notice: 'プロフィールを更新しました'
+    else
+       render 'edit'
+    end
+  end
+	 
   def new
     @user = User.new
   end
@@ -21,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
+    params.require(:user).permit(:name, :email, :location, :password,
                                  :password_confirmation)
   end
 end
