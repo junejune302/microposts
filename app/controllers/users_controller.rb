@@ -32,7 +32,17 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
+  
+  def following   #課題
+    @user = User.find(params[:id])
+    @users = @user.following_users
+  end
+ 
+  def followers   #課題
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+  end
+  
   private
 
   def user_params
