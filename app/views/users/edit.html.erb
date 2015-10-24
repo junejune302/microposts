@@ -1,5 +1,9 @@
-<h1><%= gravatar_for @user %> 
-  <%= @user.name %>さんのプロフィール編集</h1>
+<div class="container-fluid">
+	<div class="row">
+        <div class="col-sm-4"><%= gravatar_for @user %></div> 
+        <div class="col-sm-8"><h1><%= @user.name %>さんのプロフィール編集</h1></div>
+    </div>
+</div>    
   
   <div class="form-horizontal" role="form">
     <%= form_for(@user) do |f| %>
