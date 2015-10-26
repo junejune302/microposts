@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       flash[:info] = "logged in as #{@user.name}"
       redirect_to @user
     else
-      flash[:danger] = 'invalid email/password combination'
+      flash[:danger] = '登録したメールアドレス・パスワードが一致しません'
       render 'new'
     end
   end
